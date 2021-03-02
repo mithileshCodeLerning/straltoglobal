@@ -75,22 +75,6 @@ public class SalesforceAPIServiceImpl implements SalesforceAPIService{
 		  restHeaders.setContentType(MediaType.APPLICATION_JSON);
 		  restHeaders.add("Authorization", "OAuth " + oAuthtoken);
 		  
-		  /*JSONObject jsonObject = new JSONObject();
-		  JSONObject attributesObject = new JSONObject();
-		  
-		  try {
-			  jsonObject.put("FirstName", "mithi");
-			  jsonObject.put("LastName", "mithi");
-			  jsonObject.put("AccountId", "mithi");
-			  
-			  //attributesObject.put("type", "contact");
-			  //attributesObject.put("url", "/services/data/v51.0/sobjects/Contact/0035g000003aQohAAE");
-			// jsonObject.put("attributes", attributesObject);
-		} catch (JSONException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}*/
-		  
 		  // Other methods like getForEntity() or getForObject() can also be used.
 		  HttpEntity<?> restRequest = new HttpEntity<>(iobject.toString(), restHeaders);
 		  RestTemplate getRestTemplate = new RestTemplate(client.clientHttpRequestFactory());
