@@ -2,8 +2,9 @@ package com.straltoglobal.salesforce.manager;
 
 public final class SalesforceConstant {
 	public static final String oAuthURL="https://login.salesforce.com/services/oauth2/token";
-	public static final String REST_CONTACT_URL="https://start3-dev-ed.my.salesforce.com/services/data/v51.0/query/?q=SELECT+Name+FROM+Contact";
-	public static final String REST_CONTACT_POST_URL="https://start3-dev-ed.my.salesforce.com/services/data/v51.0/sobjects/Contact/";
+	public static final String REST_CONTACT_URL="https://start3-dev-ed.my.salesforce.com/services/data/v51.0/query/?q=SELECT+id,lastname,firstname,name,Salutation+FROM+Contact";
+	public static final String CREATE_CONTACT__URL="https://start3-dev-ed.my.salesforce.com/services/data/v51.0/sobjects/Contact/";
+	public static final String UDPATE_CONTACT_URL="https://start3-dev-ed.my.salesforce.com/services/data/v51.0/sobjects/Contact/{Id}";
 	
 	public static final String GRANT_TYPE="grant_type";
 	public static final String GRANT_TYPE_VALUE="password";

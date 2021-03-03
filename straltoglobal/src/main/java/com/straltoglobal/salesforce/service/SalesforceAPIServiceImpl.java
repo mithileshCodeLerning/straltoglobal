@@ -17,6 +17,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import com.straltoglobal.salesforce.manager.ClientConfig;
+import com.straltoglobal.salesforce.manager.ContactRequestMapper;
 import com.straltoglobal.salesforce.manager.SalesforceConstant;
 
 @Service
@@ -68,18 +69,34 @@ public class SalesforceAPIServiceImpl implements SalesforceAPIService{
 	}
 
 	@Override
-	public String writeSalesforceObject(JSONObject iobject) {
+	public String writeSalesforceObject(String contact) {
 		String oAuthtoken = generateAccesstoken();
 		// Create Http headers and add the oauth token to them
 		  HttpHeaders restHeaders = new HttpHeaders();
 		  restHeaders.setContentType(MediaType.APPLICATION_JSON);
 		  restHeaders.add("Authorization", "OAuth " + oAuthtoken);
 		  
+		  System.out.println(" obj:" + contact);
 		  // Other methods like getForEntity() or getForObject() can also be used.
-		  HttpEntity<?> restRequest = new HttpEntity<>(iobject.toString(), restHeaders);
+		  HttpEntity<?> restRequest = new HttpEntity<>(contact, restHeaders);
 		  RestTemplate getRestTemplate = new RestTemplate(client.clientHttpRequestFactory());
-		  return getRestTemplate.postForObject(SalesforceConstant.REST_CONTACT_POST_URL, restRequest, String.class);
+		  return getRestTemplate.postForObject(SalesforceConstant.CREATE_CONTACT__URL, restRequest, String.class);
 		  
+	}
+
+	@Override
+	public void updateSalesforceObject(String id, String object) {
+		String oAuthtoken = generateAccesstoken();
+		// Create Http headers and add the oauth token to them
+		  HttpHeaders restHeaders = new HttpHeaders();
+		  restHeaders.setContentType(MediaType.APPLICATION_JSON);
+		  restHeaders.add("Authorization", "OAuth " + oAuthtoken);
+		  String url = SalesforceConstant.UDPATE_CONTACT_URL.replace("{Id}", id);
+		  System.out.println(" obj:" + object);
+		  // Other methods like getForEntity() or getForObject() can also be used.
+		  HttpEntity<?> restRequest = new HttpEntity<>(object, restHeaders);
+		  RestTemplate getRestTemplate = new RestTemplate(client.clientHttpRequestFactory());
+		   getRestTemplate.patchForObject(url, restRequest, String.class);
 	}
 
 }
