@@ -8,6 +8,15 @@ JSON object
 
  {"LastName" : "Tiwari",
     "FirstName" : "Mithilesh",
-    "Name" : "Mithilesh Tiwari",
-    "Salutation" : "Mr."
+    "salutation" : "Mr."
     }
+4. update Contact Object
+use :- /updateContact/{id}
+Request Payload:-
+
+  {"lastname" : "Tiwarii",
+    "firstname" : "Mithilesh",
+    "salutation" : "Mr."
+    }
+    
+    
