@@ -87,7 +87,6 @@ public class SalesforceAPIServiceImpl implements SalesforceAPIService{
 	@Override
 	public void updateSalesforceObject(String id, String object) {
 		String oAuthtoken = generateAccesstoken();
-		// Create Http headers and add the oauth token to them
 		  HttpHeaders restHeaders = new HttpHeaders();
 		  restHeaders.setContentType(MediaType.APPLICATION_JSON);
 		  restHeaders.add("Authorization", "OAuth " + oAuthtoken);
