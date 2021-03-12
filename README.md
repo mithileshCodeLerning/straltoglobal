@@ -19,4 +19,9 @@ Request Payload:-
     "salutation" : "Mr."
     }
     
-    
+// BULK API
+//Required csv file I have attached in class path of the project if you want to change just put in same folder and update name in constant file. 'file_dir'
+
+5./bulkapi/job/create/{action}   -- update,insert
+6. /bulkapi/batch/status/{jobID}  -- check the status of the job. put job_id which got from pervious call.
+7./bulkapi/batch/result/{job_id}  -- Check the successfull added record.put job_id which got from pervious call.
