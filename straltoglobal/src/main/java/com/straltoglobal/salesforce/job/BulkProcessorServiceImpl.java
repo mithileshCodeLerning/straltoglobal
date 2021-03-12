@@ -80,7 +80,7 @@ public class BulkProcessorServiceImpl implements BulkProcessorService {
 		
 		try {	 
 		//File file = new File("C:\\Users\\mithilesh.tiwari\\Desktop\\csv\\result.csv");
-        File file = ResourceUtils.getFile("classpath:csv/result.csv");
+        File file = ResourceUtils.getFile("classpath:"+SalesforceConstant.FILE_DIR);
         if(file.exists()) {
         	FileEntity input = new FileEntity(file);
     		input.setContentType("text/csv");

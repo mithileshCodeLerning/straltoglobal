@@ -23,6 +23,8 @@ public final class SalesforceConstant {
 	public static final String JSON_LINE_ENDING_KEY="lineEnding";
 	public static final String JSON_LINE_ENDING_VALUE="CRLF";
 	
+	public static final String FILE_DIR="csv/result.csv";
+	
 	
 	public static final String GRANT_TYPE="grant_type";
 	public static final String GRANT_TYPE_VALUE="password";
