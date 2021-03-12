@@ -6,6 +6,24 @@ public final class SalesforceConstant {
 	public static final String CREATE_CONTACT__URL="https://start3-dev-ed.my.salesforce.com/services/data/v51.0/sobjects/Contact/";
 	public static final String UDPATE_CONTACT_URL="https://start3-dev-ed.my.salesforce.com/services/data/v51.0/sobjects/Contact/{Id}";
 	
+	// BULK JOB 
+	public static final String CREATE_JOB_URL="https://start3-dev-ed.my.salesforce.com/services/data/v51.0/jobs/ingest";
+	public static final String UPLOAD_JOB_URL="https://start3-dev-ed.my.salesforce.com/services/data/v51.0/jobs/ingest/{ID}/batches";
+	public static final String CLOSE_JOB_URL="https://start3-dev-ed.my.salesforce.com/services/data/v51.0/jobs/ingest/{ID}";
+	public static final String STATUS_JOB_URL="https://start3-dev-ed.my.salesforce.com/services/data/v51.0/jobs/ingest/{ID}";
+	public static final String STATUS_JOB_RESULT_URL="https://start3-dev-ed.my.salesforce.com/services/data/v51.0/jobs/ingest/{ID}/successfulResults";
+	
+	//CREATE JOB CONSTANT
+	public static final String JSON_OPERATION_KEY="operation";
+	public static final String JSON_OPERATION_KEY_VALUE="insert";
+	public static final String JSON_OBJECT_KEY="object";
+	public static final String JSON_OBJECT_KEY_VALUE="Contact";
+	public static final String JSON_CONTENT_TYPE_KEY="contentType";
+	public static final String JSON_CONTENT_TYPE_VALUE="CSV";
+	public static final String JSON_LINE_ENDING_KEY="lineEnding";
+	public static final String JSON_LINE_ENDING_VALUE="CRLF";
+	
+	
 	public static final String GRANT_TYPE="grant_type";
 	public static final String GRANT_TYPE_VALUE="password";
 	

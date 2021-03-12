@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.straltoglobal.salesforce.job.BulkProcessorServiceImpl;
 import com.straltoglobal.salesforce.manager.ContactRequestMapper;
 import com.straltoglobal.salesforce.service.SalesforceAPIServiceImpl;
 
@@ -20,6 +22,10 @@ public class SalesforceRestController {
 
 	@Autowired
 	SalesforceAPIServiceImpl servcie;
+	
+	@Autowired
+	 BulkProcessorServiceImpl bulkAPIService;
+	
 	
 	@GetMapping("/contacts")
 	public String getContacts()
@@ -56,5 +62,27 @@ public class SalesforceRestController {
 			e.printStackTrace();
 		}
 		return "success:true";
+	}
+	
+	
+	// bulk API
+	@RequestMapping(value = "/bulkapi/job/create/{opType}", method = RequestMethod.POST)
+	public String createBulkJob(@PathVariable("opType") String opType) throws JsonMappingException, JsonProcessingException
+	{
+		
+			return bulkAPIService.createBulkJob(opType);
+		
+	}
+	
+	@RequestMapping(value = "/bulkapi/batch/status/{id}", method = RequestMethod.GET)
+	public String getJobStatus( @PathVariable("id") String id)
+	{
+		return bulkAPIService.checkStatusOfJob(id);
+	}
+	
+	@RequestMapping(value = "/bulkapi/batch/result/{id}", method = RequestMethod.GET)
+	public String getJobResult( @PathVariable("id") String id)
+	{
+		return bulkAPIService.jobResults(id);
 	}
 }
