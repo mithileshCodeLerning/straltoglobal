@@ -98,4 +98,20 @@ public class SalesforceAPIServiceImpl implements SalesforceAPIService{
 		   getRestTemplate.patchForObject(url, restRequest, String.class);
 	}
 
+	@Override
+	public String deleteSalesforceObject(String id) {
+		  String oAuthtoken = generateAccesstoken();
+		  HttpHeaders restHeaders = new HttpHeaders();
+		  restHeaders.setContentType(MediaType.APPLICATION_JSON);
+		  restHeaders.add("Authorization", "OAuth " + oAuthtoken);
+		  String url = SalesforceConstant.UDPATE_CONTACT_URL.replace("{Id}", id);
+		  System.out.println(" delete URL:" + url);
+		  MultiValueMap<String, String> mv2Map = new LinkedMultiValueMap<>();
+		  HttpEntity<?> restRequest = new HttpEntity<>(mv2Map, restHeaders);
+		  RestTemplate getRestTemplate = new RestTemplate(client.clientHttpRequestFactory());
+		  ResponseEntity<String> responseStr = getRestTemplate.exchange(url, HttpMethod.DELETE, restRequest,
+				    String.class);
+		return responseStr.getBody();
+	}
+
 }

@@ -63,7 +63,11 @@ public class SalesforceRestController {
 		}
 		return "success:true";
 	}
-	
+	@RequestMapping(value = "/deleteContact/{id}", method = RequestMethod.DELETE)
+	public String add(@PathVariable("id") String id)
+	{
+		return servcie.deleteSalesforceObject(id);
+	}
 	
 	// bulk API
 	@RequestMapping(value = "/bulkapi/job/create/{opType}", method = RequestMethod.POST)
