@@ -4,6 +4,7 @@ projects
 1. To Run this project do maven clean install then run spring boot app
 2. To get Contact object detail, use '/contacts' 
 3. To add Contact object record use '/addContact'
+4. To delete Contact object record use '/deleteContact/{id}'
 JSON object
 
  {"LastName" : "Tiwari",
@@ -18,6 +19,8 @@ Request Payload:-
     "firstname" : "Mithilesh",
     "salutation" : "Mr."
     }
+    
+ 5. Delete /deleteContact/{ID}
     
 // BULK API
 //Required csv file I have attached in class path of the project if you want to change just put in same folder and update name in constant file. 'file_dir'
